@@ -184,7 +184,7 @@ const CourseCard = ({
   >
     {/* AI Tag */}
     <div className="absolute top-3 right-3 z-10">
-      <div className="rounded bg-brand-teal/80 px-2 py-1 text-xs font-medium text-white">
+      <div className="rounded bg-brand-teal/80 px-2 py-1 text-xs font-medium text-white transition-all duration-300 hover:bg-gradient-to-r hover:from-brand-dark hover:via-brand-medium hover:to-brand-teal hover:scale-110 cursor-pointer">
         AI+
       </div>
     </div>
