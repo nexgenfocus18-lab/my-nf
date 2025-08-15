@@ -639,7 +639,7 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* Testimonials Section */}
+      {/* Professional Training Section */}
       <section id="professionals" className="relative py-20">
         <div className="mx-auto max-w-7xl px-5">
           <div className="text-center">
@@ -650,30 +650,90 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
             >
-              What Our <span className="bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal bg-clip-text text-transparent">Students Say</span>
+              AI Training for <span className="bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal bg-clip-text text-transparent">Professionals</span>
             </motion.h2>
             <p className="mx-auto mt-6 max-w-3xl text-lg text-white/70">
-              Join thousands of professionals who have transformed their careers with our training programs.
+              Customized AI training programs for organizations and professionals. Learn how to integrate AI into your specific field and boost productivity.
             </p>
           </div>
           
-          <div className="mt-16">
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
-              <TestimonialSlide {...testimonials[currentSlide]} />
-            </div>
-            <div className="mt-4 flex justify-center gap-2">
-              {testimonials.map((_, i) => (
-                <button 
-                  key={i} 
-                  onClick={() => setCurrentSlide(i)} 
-                  className={`h-2 w-6 rounded-full transition ${
-                    i === currentSlide 
-                      ? "bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal" 
-                      : "bg-white/20 hover:bg-white/40"
-                  }`} 
-                />
-              ))}
-            </div>
+          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+              className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
+            >
+              <div className="mb-4 rounded-2xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                <GraduationCap className="size-6 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Educators & Teachers</h3>
+              <p className="text-white/70 mb-4">AI tools for classroom management, personalized learning, automated grading, and curriculum enhancement.</p>
+              <ul className="space-y-2 text-sm text-white/60">
+                <li>• AI-powered lesson planning</li>
+                <li>• Student performance analytics</li>
+                <li>• Automated assessment tools</li>
+                <li>• Personalized learning paths</li>
+              </ul>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
+            >
+              <div className="mb-4 rounded-2xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                <Users className="size-6 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Healthcare Professionals</h3>
+              <p className="text-white/70 mb-4">AI applications in diagnostics, patient care, medical research, and administrative efficiency.</p>
+              <ul className="space-y-2 text-sm text-white/60">
+                <li>• Medical image analysis</li>
+                <li>• Patient data management</li>
+                <li>• Predictive health analytics</li>
+                <li>• Drug discovery assistance</li>
+              </ul>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
+            >
+              <div className="mb-4 rounded-2xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                <Award className="size-6 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">Legal Professionals</h3>
+              <p className="text-white/70 mb-4">AI for legal research, document analysis, contract review, and case management automation.</p>
+              <ul className="space-y-2 text-sm text-white/60">
+                <li>• Legal document analysis</li>
+                <li>• Case law research automation</li>
+                <li>• Contract review & drafting</li>
+                <li>• Compliance monitoring</li>
+              </ul>
+            </motion.div>
+          </div>
+          
+          <div className="mt-12 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl max-w-4xl mx-auto"
+            >
+              <h3 className="text-2xl font-bold text-white mb-4">Corporate Bulk Training</h3>
+              <p className="text-white/70 mb-6">Transform your entire organization with customized AI training programs. Special pricing for bulk enrollments and corporate partnerships.</p>
+              <div className="flex flex-wrap gap-4 justify-center">
+                <CTAButton href="#contact">Request Corporate Training</CTAButton>
+                <DownloadButton />
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
