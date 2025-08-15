@@ -272,6 +272,55 @@ const EventCard = ({ title, date, time, location, type }: {
   </motion.div>
 );
 
+// Mentor card component
+const MentorCard = ({ 
+  name, 
+  role, 
+  experience, 
+  expertise, 
+  icon: Icon 
+}: {
+  name: string;
+  role: string;
+  experience: string;
+  expertise: string[];
+  icon: React.ComponentType<{ className?: string }>;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.5 }}
+    className="rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl"
+  >
+    <div className="mb-4 flex items-center gap-4">
+      <div className="rounded-2xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3">
+        <Icon className="size-8 text-white" />
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold text-white">{name}</h3>
+        <p className="text-brand-teal">{role}</p>
+      </div>
+    </div>
+    
+    <p className="mb-4 text-sm text-white/70">{experience}</p>
+    
+    <div className="space-y-2">
+      <h4 className="text-sm font-medium text-white/90">Expertise:</h4>
+      <div className="flex flex-wrap gap-2">
+        {expertise.map((skill, i) => (
+          <span 
+            key={i} 
+            className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+    </div>
+  </motion.div>
+);
+
 // Social icon component
 const Social = ({ icon: Icon }: { icon: React.ComponentType<{ className?: string }> }) => (
   <a href="#" className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal text-white shadow-[0_10px_30px_-10px_rgba(20,184,198,0.55)] transition hover:scale-105">
@@ -435,6 +484,52 @@ export default function Home() {
               icon={Award} 
               title="Affordable Pricing" 
               description="Quality education shouldn't break the bank. We offer competitive pricing for maximum value." 
+            />
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* Mentors Section */}
+      <section id="mentors" className="relative py-20">
+        <div className="mx-auto max-w-7xl px-5">
+          <div className="text-center">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.6 }}
+              className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
+            >
+              Meet Our <span className="bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal bg-clip-text text-transparent">Expert Mentors</span>
+            </motion.h2>
+            <p className="mx-auto mt-6 max-w-3xl text-lg text-white/70">
+              Learn from industry professionals with years of experience in AI, software development, and data science. Our mentors are committed to your success.
+            </p>
+          </div>
+          
+          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            <MentorCard
+              icon={Users}
+              name="Industry Expert"
+              role="Senior AI Engineer"
+              experience="10+ years experience in machine learning and AI development at leading tech companies."
+              expertise={["Machine Learning", "Python", "TensorFlow", "Data Science"]}
+            />
+            <MentorCard
+              icon={Code}
+              name="Development Mentor"
+              role="Full Stack Developer"
+              experience="8+ years building scalable web applications and mentoring developers."
+              expertise={["React", "Node.js", "JavaScript", "System Design"]}
+            />
+            <MentorCard
+              icon={Target}
+              name="Career Guide"
+              role="Tech Career Coach"
+              experience="5+ years helping professionals transition into tech roles with 95% success rate."
+              expertise={["Career Planning", "Interview Prep", "Skill Assessment", "Industry Insights"]}
             />
           </div>
         </div>
