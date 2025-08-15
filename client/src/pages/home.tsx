@@ -23,6 +23,7 @@ import {
   Send,
   Clock
 } from "lucide-react";
+import nexgenLogo from "@assets/IG Logo_1755259907946.png";
 
 // Logo component with graceful fallback
 const Logo = () => {
@@ -31,7 +32,7 @@ const Logo = () => {
     <div className="group flex items-center gap-3 cursor-pointer transition-all duration-300 hover:scale-105">
       {!loadError ? (
         <img
-          src="/IG Logo.png"
+          src={nexgenLogo}
           alt="Nexgen Focus Logo"
           className="h-9 w-auto select-none transition-all duration-300 group-hover:drop-shadow-[0_0_20px_rgba(20,184,198,0.6)] group-hover:rotate-[5deg]"
           onError={() => setLoadError(true)}
