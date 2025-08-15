@@ -1,5 +1,14 @@
+// ========================================
+// NEXGEN FOCUS WEBSITE - MAIN HOME PAGE
+// ========================================
+// This file contains the entire website for Nexgen Focus
+// Educational platform for AI, Coding & Future Skills
+
+// Import React hooks for state management and effects
 import React, { useEffect, useRef, useState } from "react";
+// Import Framer Motion for smooth animations and scroll effects
 import { motion, useScroll, useTransform } from "framer-motion";
+// Import all the icons we use throughout the website
 import { 
   ArrowRight, 
   GraduationCap, 
@@ -23,9 +32,14 @@ import {
   Send,
   Clock
 } from "lucide-react";
+// Import your company logo
 import nexgenLogo from "@assets/IG Logo_1755259907946.png";
 
-// Logo component with graceful fallback
+// ========================================
+// LOGO COMPONENT
+// ========================================
+// This creates your animated company logo
+// TO CHANGE: Replace the logo file in attached_assets folder
 const Logo = () => {
   const [loadError, setLoadError] = useState(false);
   return (
@@ -49,7 +63,11 @@ const Logo = () => {
   );
 };
 
-// Reusable gradient button
+// ========================================
+// CALL-TO-ACTION BUTTON COMPONENT
+// ========================================
+// This creates the beautiful gradient buttons used throughout the site
+// TO CHANGE COLORS: Modify the gradient colors in the className below
 const CTAButton = ({ children, href, onClick, className = "" }: {
   children: React.ReactNode;
   href?: string;
@@ -75,7 +93,11 @@ const CTAButton = ({ children, href, onClick, className = "" }: {
   );
 };
 
-// Download button component
+// ========================================
+// DOWNLOAD BROCHURE BUTTON
+// ========================================
+// This button downloads the PDF brochure
+// TO CHANGE: Replace nexgen-brochure.pdf in client/public folder
 const DownloadButton = ({ className = "" }: { className?: string }) => {
   const handleDownload = () => {
     // Create a link element and trigger download
@@ -158,7 +180,12 @@ const FeatureCard = ({ icon: Icon, title, description }: {
   </motion.div>
 );
 
-// Course card component
+// ========================================
+// COURSE/PROGRAM CARD COMPONENT
+// ========================================
+// This creates the program cards with pricing and features
+// TO ADD NEW PROGRAM: Copy this pattern in the Programs section below
+// TO CHANGE PRICES: Modify the price parameter when using this component
 const CourseCard = ({ 
   icon: Icon, 
   title, 
@@ -368,7 +395,11 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
-  // Contact form handling
+  // ========================================
+  // CONTACT FORM LOGIC
+  // ========================================
+  // This manages the contact form data and submission
+  // TO ADD FORM FIELDS: Add new properties here and in the form below
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -382,6 +413,14 @@ export default function Home() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
+  // ========================================
+  // FORM SUBMISSION HANDLER
+  // ========================================
+  // Currently just shows an alert - you can modify this to:
+  // 1. Send email using EmailJS
+  // 2. Store in database
+  // 3. Send to WhatsApp
+  // 4. Integrate with contact services
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Contact form submitted:', formData);
@@ -411,7 +450,11 @@ export default function Home() {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* ========================================
+           HERO SECTION (TOP OF PAGE)
+           ========================================
+           This is the first thing visitors see
+           TO CHANGE: Update the headline, description, and button text below */}
       <section id="home" className="relative overflow-hidden">
         <motion.div style={{ y }} className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
           <div className="h-full w-full bg-[radial-gradient(1200px_600px_at_50%_-200px,rgba(20,184,198,0.2),transparent)]"/>
@@ -425,12 +468,15 @@ export default function Home() {
               transition={{ duration: 0.6 }} 
               className="text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl"
             >
+              {/* MAIN HEADLINE - Change this to update your main message */}
               Learn <span className="bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal bg-clip-text text-transparent">AI, Coding</span> & Future Skills
               <span className="block text-white/80">Affordable for Everyone</span>
             </motion.h1>
+            {/* HERO DESCRIPTION - Update this to change your main value proposition */}
             <p className="mt-6 max-w-xl text-lg text-white/70">
               Empowering students and professionals with live training and real world projects. Join thousands building their future with cutting edge skills.
             </p>
+            {/* HERO BUTTONS - Update prices and program names here */}
             <div className="mt-8 flex flex-wrap gap-3">
               <CTAButton href="#contact">Join 1 Day AI Masterclass - ₹49</CTAButton>
               <CTAButton href="#contact">Register for 3 Day Training - ₹249</CTAButton>
@@ -445,6 +491,7 @@ export default function Home() {
             className="relative"
           >
             <div className="relative rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+              {/* STATISTICS CARDS - Update these numbers to reflect your actual stats */}
               <div className="grid grid-cols-2 gap-4">
                 <Stat icon={GraduationCap} value="10,000+" label="Students Trained"/>
                 <Stat icon={Users} value="500+" label="Companies Hiring"/>
@@ -470,13 +517,16 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
             >
+              {/* SECTION TITLE - Change "Nexgen Focus" to your company name */}
               About <span className="bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal bg-clip-text text-transparent">Nexgen Focus</span>
             </motion.h2>
+            {/* ABOUT DESCRIPTION - Update this to describe your company */}
             <p className="mx-auto mt-6 max-w-3xl text-lg text-white/70">
               We are bridging the skills gap in technology by providing practical, industry-relevant training programs. Our mission is to make quality tech education accessible and affordable for everyone, from students to working professionals.
             </p>
           </div>
           
+          {/* FEATURE CARDS - Add or remove features by copying this pattern */}
           <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
             <FeatureCard 
               icon={Target} 
@@ -540,6 +590,7 @@ export default function Home() {
                 
                 {/* Content */}
                 <div className="order-1 lg:order-2">
+                  {/* INSTRUCTOR INFO - Update with your actual name and title */}
                   <div className="mb-6">
                     <h3 className="text-2xl font-bold text-white mb-2">Your Name</h3>
                     <p className="text-brand-teal font-medium">AI & Technology Expert</p>
@@ -563,6 +614,7 @@ export default function Home() {
                     <div>
                       <h4 className="text-sm font-medium text-white/90 mb-3">Core Expertise:</h4>
                       <div className="flex flex-wrap gap-2">
+                        {/* EXPERTISE TAGS - Add or modify your skills here */}
                         <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">AI & Machine Learning</span>
                         <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">Python Programming</span>
                         <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">Data Science</span>
