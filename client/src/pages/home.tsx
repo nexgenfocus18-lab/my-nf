@@ -1060,18 +1060,26 @@ export default function Home() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-white/80" htmlFor="program">Program of Interest</label>
-                  <select 
-                    id="program"
-                    name="program"
-                    value={formData.program}
-                    onChange={handleInputChange}
-                    className="mt-2 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white backdrop-blur-xl focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
-                  >
-                    <option value="">Select a program</option>
-                    <option value="1-day-ai">1 Day AI Masterclass - ₹49</option>
-                    <option value="3-day-training">3 Day Training - ₹249</option>
-                    <option value="python-coding">Python + Vibe Coding - ₹2,499</option>
-                  </select>
+                  <div className="relative mt-2">
+                    <select 
+                      id="program"
+                      name="program"
+                      value={formData.program}
+                      onChange={handleInputChange}
+                      className="w-full appearance-none rounded-xl border border-white/30 bg-gradient-to-r from-white/95 via-white/90 to-white/95 px-4 py-3 pr-10 text-gray-800 font-medium shadow-[0_4px_20px_-4px_rgba(255,255,255,0.1)] backdrop-blur-xl transition-all duration-300 hover:border-brand-teal/60 hover:shadow-[0_8px_30px_-4px_rgba(20,184,198,0.3)] focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/30 focus:shadow-[0_8px_30px_-4px_rgba(20,184,198,0.4)]"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+                        backgroundPosition: 'right 0.75rem center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: '1.5em 1.5em'
+                      }}
+                    >
+                      <option value="" className="text-gray-500 bg-white">✨ Select your program</option>
+                      <option value="1-day-ai" className="text-gray-800 bg-white font-medium">🚀 1 Day AI Masterclass - ₹49</option>
+                      <option value="3-day-training" className="text-gray-800 bg-white font-medium">⭐ 3 Day Training - ₹249</option>
+                      <option value="python-coding" className="text-gray-800 bg-white font-medium">💻 Python + Vibe Coding - ₹2,499</option>
+                    </select>
+                  </div>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-white/80" htmlFor="message">Message</label>
