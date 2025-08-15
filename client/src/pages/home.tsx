@@ -1066,18 +1066,18 @@ export default function Home() {
                       name="program"
                       value={formData.program}
                       onChange={handleInputChange}
-                      className="w-full appearance-none rounded-xl border border-white/30 bg-gradient-to-r from-white/95 via-white/90 to-white/95 px-4 py-3 pr-10 text-gray-800 font-medium shadow-[0_4px_20px_-4px_rgba(255,255,255,0.1)] backdrop-blur-xl transition-all duration-300 hover:border-brand-teal/60 hover:shadow-[0_8px_30px_-4px_rgba(20,184,198,0.3)] focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/30 focus:shadow-[0_8px_30px_-4px_rgba(20,184,198,0.4)]"
+                      className="w-full appearance-none rounded-xl border border-brand-teal/40 bg-gradient-to-r from-brand-dark/80 via-brand-medium/70 to-brand-teal/60 px-4 py-3 pr-10 text-white font-medium shadow-[0_4px_20px_-4px_rgba(20,184,198,0.3)] backdrop-blur-xl transition-all duration-300 hover:border-brand-teal hover:shadow-[0_8px_30px_-4px_rgba(20,184,198,0.5)] hover:bg-gradient-to-r hover:from-brand-dark hover:via-brand-medium hover:to-brand-teal focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/40 focus:shadow-[0_8px_30px_-4px_rgba(20,184,198,0.6)]"
                       style={{
-                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2314b8c6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
                         backgroundPosition: 'right 0.75rem center',
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: '1.5em 1.5em'
                       }}
                     >
-                      <option value="" className="text-gray-500 bg-white">✨ Select your program</option>
-                      <option value="1-day-ai" className="text-gray-800 bg-white font-medium">🚀 1 Day AI Masterclass - ₹49</option>
-                      <option value="3-day-training" className="text-gray-800 bg-white font-medium">⭐ 3 Day Training - ₹249</option>
-                      <option value="python-coding" className="text-gray-800 bg-white font-medium">💻 Python + Vibe Coding - ₹2,499</option>
+                      <option value="" className="text-white/70 bg-slate-800">✨ Select your program</option>
+                      <option value="1-day-ai" className="text-white bg-slate-800 font-medium">🚀 1 Day AI Masterclass - ₹49</option>
+                      <option value="3-day-training" className="text-white bg-slate-800 font-medium">⭐ 3 Day Training - ₹249</option>
+                      <option value="python-coding" className="text-white bg-slate-800 font-medium">💻 Python + Vibe Coding - ₹2,499</option>
                     </select>
                   </div>
                 </div>
