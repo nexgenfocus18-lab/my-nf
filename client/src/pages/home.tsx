@@ -1066,9 +1066,9 @@ export default function Home() {
                       name="program"
                       value={formData.program}
                       onChange={handleInputChange}
-                      className="w-full appearance-none rounded-xl border border-brand-teal/40 bg-gradient-to-r from-brand-dark/80 via-brand-medium/70 to-brand-teal/60 px-4 py-3 pr-10 text-white font-medium shadow-[0_4px_20px_-4px_rgba(20,184,198,0.3)] backdrop-blur-xl transition-all duration-300 hover:border-brand-teal hover:shadow-[0_8px_30px_-4px_rgba(20,184,198,0.5)] hover:bg-gradient-to-r hover:from-brand-dark hover:via-brand-medium hover:to-brand-teal focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/40 focus:shadow-[0_8px_30px_-4px_rgba(20,184,198,0.6)]"
+                      className="w-full appearance-none rounded-xl border border-white/20 bg-white/10 px-4 py-3 pr-10 text-white font-medium backdrop-blur-xl transition-all duration-300 hover:border-brand-teal hover:bg-white/15 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
                       style={{
-                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2314b8c6' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
+                        backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-opacity='0.8' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
                         backgroundPosition: 'right 0.75rem center',
                         backgroundRepeat: 'no-repeat',
                         backgroundSize: '1.5em 1.5em'
