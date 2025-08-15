@@ -182,6 +182,13 @@ const CourseCard = ({
       isPopular ? 'animate-glow-pulse' : ''
     }`}
   >
+    {/* AI Tag */}
+    <div className="absolute top-4 right-4 z-10">
+      <div className="rounded-full bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal px-3 py-1 text-xs font-semibold text-white shadow-lg">
+        🤖 AI FOCUSED
+      </div>
+    </div>
+    
     {isPopular && (
       <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
         <div className="rounded-full bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal px-4 py-2 text-sm font-semibold text-white shadow-lg whitespace-nowrap">
