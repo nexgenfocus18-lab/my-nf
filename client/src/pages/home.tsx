@@ -1068,9 +1068,9 @@ export default function Home() {
                     className="mt-2 w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white backdrop-blur-xl focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/20"
                   >
                     <option value="">Select a program</option>
-                    <option value="1-day-ai">1 Day AI Masterclass</option>
-                    <option value="3-day-training">3 Day Training</option>
-                    <option value="python-coding">Python + Vibe Coding</option>
+                    <option value="1-day-ai">1 Day AI Masterclass - ₹49</option>
+                    <option value="3-day-training">3 Day Training - ₹249</option>
+                    <option value="python-coding">Python + Vibe Coding - ₹2,499</option>
                   </select>
                 </div>
                 <div>
