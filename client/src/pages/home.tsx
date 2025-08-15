@@ -183,9 +183,9 @@ const CourseCard = ({
     }`}
   >
     {/* AI Tag */}
-    <div className="absolute top-4 right-4 z-10">
-      <div className="rounded-full bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal px-3 py-1 text-xs font-semibold text-white shadow-lg">
-        🤖 AI FOCUSED
+    <div className="absolute top-3 right-3 z-10">
+      <div className="rounded bg-brand-teal/80 px-2 py-1 text-xs font-medium text-white">
+        AI+
       </div>
     </div>
     
