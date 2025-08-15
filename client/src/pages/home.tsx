@@ -578,6 +578,162 @@ export default function Home() {
 
       <SectionDivider />
 
+      {/* AI Tools Section */}
+      <section id="tools" className="relative py-20">
+        <div className="mx-auto max-w-7xl px-5">
+          <div className="text-center">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }} 
+              whileInView={{ opacity: 1, y: 0 }} 
+              viewport={{ once: true }} 
+              transition={{ duration: 0.6 }}
+              className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
+            >
+              AI Tools You'll <span className="bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal bg-clip-text text-transparent">Master</span>
+            </motion.h2>
+            <p className="mx-auto mt-6 max-w-3xl text-lg text-white/70">
+              Learn industry-standard AI tools and technologies that power modern businesses and careers.
+            </p>
+          </div>
+          
+          {/* Sliding AI Tools */}
+          <div className="mt-16 overflow-hidden">
+            <div className="flex animate-[slide_20s_linear_infinite] gap-6">
+              {/* First set */}
+              <div className="flex-shrink-0 w-64 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="mb-4 rounded-xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                  <Cpu className="size-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">ChatGPT</h3>
+                <p className="text-sm text-white/70">Master prompt engineering and AI conversations for productivity</p>
+              </div>
+              
+              <div className="flex-shrink-0 w-64 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="mb-4 rounded-xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                  <Star className="size-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Midjourney</h3>
+                <p className="text-sm text-white/70">Create stunning AI-generated images and visual content</p>
+              </div>
+              
+              <div className="flex-shrink-0 w-64 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="mb-4 rounded-xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                  <Users className="size-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Claude AI</h3>
+                <p className="text-sm text-white/70">Advanced AI assistant for complex reasoning and analysis</p>
+              </div>
+              
+              <div className="flex-shrink-0 w-64 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="mb-4 rounded-xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                  <Code className="size-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">GitHub Copilot</h3>
+                <p className="text-sm text-white/70">AI-powered coding assistant for faster development</p>
+              </div>
+              
+              <div className="flex-shrink-0 w-64 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="mb-4 rounded-xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                  <Target className="size-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">TensorFlow</h3>
+                <p className="text-sm text-white/70">Build and deploy machine learning models at scale</p>
+              </div>
+              
+              <div className="flex-shrink-0 w-64 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="mb-4 rounded-xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                  <Award className="size-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Hugging Face</h3>
+                <p className="text-sm text-white/70">Access thousands of pre-trained AI models and datasets</p>
+              </div>
+              
+              {/* Duplicate set for seamless loop */}
+              <div className="flex-shrink-0 w-64 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="mb-4 rounded-xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                  <Cpu className="size-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">ChatGPT</h3>
+                <p className="text-sm text-white/70">Master prompt engineering and AI conversations for productivity</p>
+              </div>
+              
+              <div className="flex-shrink-0 w-64 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="mb-4 rounded-xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                  <Star className="size-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Midjourney</h3>
+                <p className="text-sm text-white/70">Create stunning AI-generated images and visual content</p>
+              </div>
+              
+              <div className="flex-shrink-0 w-64 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="mb-4 rounded-xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                  <Users className="size-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Claude AI</h3>
+                <p className="text-sm text-white/70">Advanced AI assistant for complex reasoning and analysis</p>
+              </div>
+              
+              <div className="flex-shrink-0 w-64 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="mb-4 rounded-xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                  <Code className="size-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">GitHub Copilot</h3>
+                <p className="text-sm text-white/70">AI-powered coding assistant for faster development</p>
+              </div>
+              
+              <div className="flex-shrink-0 w-64 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="mb-4 rounded-xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                  <Target className="size-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">TensorFlow</h3>
+                <p className="text-sm text-white/70">Build and deploy machine learning models at scale</p>
+              </div>
+              
+              <div className="flex-shrink-0 w-64 rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+                <div className="mb-4 rounded-xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 w-fit">
+                  <Award className="size-6 text-white" />
+                </div>
+                <h3 className="text-lg font-semibold text-white mb-2">Hugging Face</h3>
+                <p className="text-sm text-white/70">Access thousands of pre-trained AI models and datasets</p>
+              </div>
+            </div>
+          </div>
+          
+          {/* Permanent Foundation Cards */}
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+              className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl text-center"
+            >
+              <div className="mx-auto mb-6 w-fit rounded-3xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-4">
+                <Code className="size-12 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">Python Programming</h3>
+              <p className="text-white/70">Master the foundation language for AI and data science with hands-on projects and real-world applications.</p>
+            </motion.div>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl text-center"
+            >
+              <div className="mx-auto mb-6 w-fit rounded-3xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-4">
+                <Cpu className="size-12 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold text-white mb-4">AI & Machine Learning</h3>
+              <p className="text-white/70">Deep dive into artificial intelligence concepts, algorithms, and practical implementation in modern business scenarios.</p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
       {/* Programs Section */}
       <section id="programs" className="relative py-20">
         <div className="mx-auto max-w-7xl px-5">
