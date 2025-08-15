@@ -28,19 +28,19 @@ import {
 const Logo = () => {
   const [loadError, setLoadError] = useState(false);
   return (
-    <div className="flex items-center gap-3">
+    <div className="group flex items-center gap-3 cursor-pointer transition-all duration-300 hover:scale-105">
       {!loadError ? (
         <img
           src="/IG Logo.png"
           alt="Nexgen Focus Logo"
-          className="h-9 w-auto select-none"
+          className="h-9 w-auto select-none transition-all duration-300 group-hover:drop-shadow-[0_0_20px_rgba(20,184,198,0.6)] group-hover:rotate-[5deg]"
           onError={() => setLoadError(true)}
         />
       ) : (
-        <div className="h-9 w-9 rounded-lg bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal" />
+        <div className="h-9 w-9 rounded-lg bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal transition-all duration-300 group-hover:rotate-[5deg] group-hover:shadow-[0_0_20px_rgba(20,184,198,0.6)]" />
       )}
-      <div className="text-lg font-semibold tracking-tight">
-        <span className="bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal bg-clip-text text-transparent">
+      <div className="text-lg font-semibold tracking-tight transition-all duration-300 group-hover:tracking-wide">
+        <span className="bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal bg-clip-text text-transparent transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-brand-teal group-hover:via-brand-medium group-hover:to-brand-dark group-hover:text-transparent group-hover:drop-shadow-[0_0_10px_rgba(20,184,198,0.4)]">
           Nexgen Focus
         </span>
       </div>
