@@ -491,8 +491,8 @@ export default function Home() {
 
       <SectionDivider />
 
-      {/* Mentors Section */}
-      <section id="mentors" className="relative py-20">
+      {/* About Instructor Section */}
+      <section id="instructor" className="relative py-20">
         <div className="mx-auto max-w-7xl px-5">
           <div className="text-center">
             <motion.h2 
@@ -502,35 +502,69 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
             >
-              Meet Our <span className="bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal bg-clip-text text-transparent">Expert Mentors</span>
+              Meet Your <span className="bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal bg-clip-text text-transparent">Instructor</span>
             </motion.h2>
             <p className="mx-auto mt-6 max-w-3xl text-lg text-white/70">
-              Learn from industry professionals with years of experience in AI, software development, and data science. Our mentors are committed to your success.
+              Learn directly from an industry expert committed to your success in AI and technology.
             </p>
           </div>
           
-          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <MentorCard
-              icon={Users}
-              name="Industry Expert"
-              role="Senior AI Engineer"
-              experience="10+ years experience in machine learning and AI development at leading tech companies."
-              expertise={["Machine Learning", "Python", "TensorFlow", "Data Science"]}
-            />
-            <MentorCard
-              icon={Code}
-              name="Development Mentor"
-              role="Full Stack Developer"
-              experience="8+ years building scalable web applications and mentoring developers."
-              expertise={["React", "Node.js", "JavaScript", "System Design"]}
-            />
-            <MentorCard
-              icon={Target}
-              name="Career Guide"
-              role="Tech Career Coach"
-              experience="5+ years helping professionals transition into tech roles with 95% success rate."
-              expertise={["Career Planning", "Interview Prep", "Skill Assessment", "Industry Insights"]}
-            />
+          <div className="mt-16 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5 }}
+              className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                {/* Photo placeholder */}
+                <div className="order-2 lg:order-1">
+                  <div className="aspect-square rounded-2xl bg-gradient-to-tr from-brand-dark/20 via-brand-medium/20 to-brand-teal/20 border border-white/10 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="mx-auto mb-4 w-24 h-24 rounded-2xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal flex items-center justify-center">
+                        <Users className="size-12 text-white" />
+                      </div>
+                      <p className="text-white/50 text-sm">Your Photo Here</p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Content */}
+                <div className="order-1 lg:order-2">
+                  <div className="mb-6">
+                    <h3 className="text-2xl font-bold text-white mb-2">Your Name</h3>
+                    <p className="text-brand-teal font-medium">AI & Technology Expert</p>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="text-lg font-semibold text-white mb-3">What Industry Professionals Say:</h4>
+                      <div className="space-y-3">
+                        <div className="rounded-lg bg-white/5 p-4 border-l-4 border-brand-teal">
+                          <p className="text-white/80 text-sm italic">"Exceptional technical depth and teaching ability"</p>
+                          <p className="text-white/60 text-xs mt-1">- Senior Tech Lead</p>
+                        </div>
+                        <div className="rounded-lg bg-white/5 p-4 border-l-4 border-brand-teal">
+                          <p className="text-white/80 text-sm italic">"Makes complex AI concepts accessible and practical"</p>
+                          <p className="text-white/60 text-xs mt-1">- Industry Expert</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h4 className="text-sm font-medium text-white/90 mb-3">Core Expertise:</h4>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">AI & Machine Learning</span>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">Python Programming</span>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">Data Science</span>
+                        <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/80">Career Mentoring</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
