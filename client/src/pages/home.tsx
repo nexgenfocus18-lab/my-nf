@@ -183,8 +183,8 @@ const CourseCard = ({
     }`}
   >
     {isPopular && (
-      <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-        <div className="rounded-full bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal px-4 py-2 text-sm font-semibold text-white shadow-lg">
+      <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+        <div className="rounded-full bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal px-4 py-2 text-sm font-semibold text-white shadow-lg whitespace-nowrap">
           ⭐ MOST POPULAR
         </div>
       </div>
