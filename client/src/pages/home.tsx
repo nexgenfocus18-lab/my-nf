@@ -34,7 +34,7 @@ const Logo = () => {
         <img
           src={nexgenLogo}
           alt="Nexgen Focus Logo"
-          className="h-9 w-auto select-none transition-all duration-300 group-hover:drop-shadow-[0_0_20px_rgba(20,184,198,0.6)] group-hover:rotate-[5deg]"
+          className="h-9 w-auto select-none rounded-lg transition-all duration-300 group-hover:drop-shadow-[0_0_20px_rgba(20,184,198,0.6)] group-hover:rotate-[5deg]"
           onError={() => setLoadError(true)}
         />
       ) : (
