@@ -1,0 +1,430 @@
+import React, { useEffect, useRef, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, GraduationCap, Cpu, Users, Star, Calendar, Phone, Mail, MapPin, Linkedin, Facebook, Twitter, Instagram, Youtube, Sparkles } from "lucide-react";
+
+/*
+  Nexgen Focus - School of Skills for the Next Generation
+  ------------------------------------------------------
+  This is a single-file React component that renders a modern, clean, and
+  mobile-friendly site using Tailwind CSS, Framer Motion, and Lucide icons.
+
+  Quick edits you may want in the future:
+  1) Change the logo file: place your logo image in your project's /public folder
+     and update LOGO_SRC below if needed.
+  2) Change CTA button text or prices: search for the strings inside the HERO and
+     PROGRAMS sections and edit the text.
+  3) Colors: search for the hex values #0C2D6B, #0E64A0, #14B8C6 to tweak the brand
+     gradient. You can also change Tailwind classes like bg-black/30, text-white/70, etc.
+  4) Sections: each section is clearly marked with comments. Duplicate a block to
+     add a new section, then add a link to it in the NAVBAR.
+  5) Programs: update titles, bullets, and prices inside <CourseCard /> props.
+
+  Notes:
+  - Keep all punctuation as standard ASCII characters to avoid build errors.
+  - If the preview does not show your logo, ensure the file exists at /public/IG Logo.png.
+  - You can replace web background images with your own assets if desired.
+*/
+
+// Path to your uploaded logo. Make sure the file lives in /public
+const LOGO_SRC = "/IG Logo.png";
+
+// Reusable gradient button used across the site
+const CTAButton = ({ children, href }) => (
+  <a
+    href={href}
+    className="group inline-flex items-center gap-2 rounded-2xl bg-gradient-to-tr from-[#0C2D6B] via-[#0E64A0] to-[#14B8C6] px-6 py-3 font-semibold text-white shadow-[0_10px_30px_-10px_rgba(20,184,198,0.55)] transition-transform duration-200 hover:scale-[1.02] hover:shadow-[0_18px_40px_-12px_rgba(20,184,198,0.65)]"
+  >
+    {children}
+    <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+  </a>
+);
+
+// Subtle top glow helper
+const GradientGlow = ({ className = "" }) => (
+  <div className={`pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)] ${className}`}>
+    <div className="absolute -top-32 left-1/2 h-[500px] w-[900px] -translate-x-1/2 rounded-full bg-gradient-to-r from-[#0C2D6B] via-[#0E64A0] to-[#14B8C6] opacity-30 blur-3xl"/>
+  </div>
+);
+
+// Divider between sections
+const SectionDivider = () => (
+  <div className="relative mx-auto my-20 h-px w-full max-w-6xl overflow-visible">
+    <div className="h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent"/>
+    <div className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-[#0C2D6B] via-[#0E64A0] to-[#14B8C6] shadow-[0_0_30px_8px_rgba(20,184,198,0.35)]"/>
+  </div>
+);
+
+// Logo component with a graceful fallback if the image is missing
+const Logo = () => {
+  const [loadError, setLoadError] = useState(false);
+  return (
+    <div className="flex items-center gap-3">
+      {!loadError ? (
+        <img
+          src={LOGO_SRC}
+          alt="Nexgen Focus Logo"
+          className="h-9 w-auto select-none"
+          onError={() => setLoadError(true)}
+        />
+      ) : (
+        // Fallback: small gradient square if image is not found
+        <div className="h-9 w-9 rounded-lg bg-gradient-to-tr from-[#0C2D6B] via-[#0E64A0] to-[#14B8C6]" />
+      )}
+      <div className="text-lg font-semibold tracking-tight">
+        <span className="bg-gradient-to-r from-[#0C2D6B] via-[#0E64A0] to-[#14B8C6] bg-clip-text text-transparent">Nexgen Focus</span>
+      </div>
+    </div>
+  );
+};
+
+// Small building blocks
+const NavLink = ({ href, children }) => (
+  <a href={href} className="rounded-full px-4 py-2 text-sm text-white/80 transition hover:bg-white/5 hover:text-white">
+    {children}
+  </a>
+);
+
+const Stat = ({ icon: Icon, label, value }) => (
+  <div className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl">
+    <div className="rounded-xl bg-gradient-to-tr from-[#0C2D6B]/60 via-[#0E64A0]/60 to-[#14B8C6]/60 p-2 text-white shadow-inner">
+      <Icon className="size-5" />
+    </div>
+    <div>
+      <div className="text-lg font-semibold text-white/90">{value}</div>
+      <div className="text-sm text-white/60">{label}</div>
+    </div>
+  </div>
+);
+
+const CourseCard = ({ icon: Icon, title, price, bullets, cta }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.2 }}
+    transition={{ duration: 0.5 }}
+    className="group relative flex flex-col rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-xl"
+  >
+    <div className="mb-5 flex items-center gap-3">
+      <div className="rounded-2xl bg-gradient-to-tr from-[#0C2D6B] via-[#0E64A0] to-[#14B8C6] p-3 text-white">
+        <Icon className="size-6" />
+      </div>
+      <h3 className="text-xl font-semibold tracking-tight text-white">{title}</h3>
+    </div>
+    <div className="mb-4 text-3xl font-bold text-white">₹{price}</div>
+    <ul className="mb-6 space-y-3 text-sm text-white/75">
+      {bullets.map((b, i) => (
+        <li key={i} className="flex items-start gap-2">
+          <Sparkles className="mt-0.5 size-4 text-[#14B8C6]" />
+          <span>{b}</span>
+        </li>
+      ))}
+    </ul>
+    <CTAButton href="#contact">{cta}</CTAButton>
+    <div
+      className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+      style={{ background: "radial-gradient(800px_200px_at_50%_-10%,rgba(20,184,198,0.18),transparent)" }}
+    />
+  </motion.div>
+);
+
+const TestimonialSlide = ({ quote, name, role }) => (
+  <div className="mx-auto max-w-3xl text-center">
+    <div className="mb-6 flex justify-center">
+      <Star className="size-5 text-teal-300" />
+      <Star className="size-5 text-teal-300" />
+      <Star className="size-5 text-teal-300" />
+      <Star className="size-5 text-teal-300" />
+      <Star className="size-5 text-teal-300" />
+    </div>
+    <p className="text-xl leading-relaxed text-white/90">“{quote}”</p>
+    <p className="mt-6 text-white/70">{name} • {role}</p>
+  </div>
+);
+
+const ClockIcon = () => (
+  <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+);
+
+const EventCard = ({ title, date, time, location, type }) => (
+  <div className="rounded-3xl border border-white/10 bg-white/5 p-5 backdrop-blur-xl">
+    <div className="mb-3 text-lg font-semibold text-white">{title}</div>
+    <div className="space-y-2 text-sm text-white/70">
+      <div className="flex items-center gap-2"><Calendar className="size-4"/> {date}</div>
+      <div className="flex items-center gap-2"><ClockIcon/> {time}</div>
+      <div className="flex items-center gap-2"><MapPin className="size-4"/> {location}</div>
+    </div>
+    <div className="mt-4 flex items-center justify-between">
+      <span className="rounded-full border border-white/15 px-3 py-1 text-xs text-white/70">{type}</span>
+      <CTAButton href="#contact">Register Now</CTAButton>
+    </div>
+  </div>
+);
+
+const FooterHeading = ({ children }) => (
+  <div className="mb-3 text-base font-semibold text-white/90">{children}</div>
+);
+
+const FooterLink = ({ href, children }) => (
+  <a href={href} className="block py-1 text-sm text-white/70 transition hover:text-white">{children}</a>
+);
+
+const FooterItem = ({ icon, children }) => (
+  <div className="mt-2 flex items-start gap-3 text-sm text-white/70">{icon}<span>{children}</span></div>
+);
+
+const Social = ({ icon }) => (
+  <a href="#" className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-tr from-[#0C2D6B] via-[#0E64A0] to-[#14B8C6] text-white shadow-[0_10px_30px_-10px_rgba(20,184,198,0.55)] transition hover:scale-105">
+    {icon}
+  </a>
+);
+
+export default function NexgenFocusSite() {
+  // Simple parallax for the hero background
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 600], [0, 140]);
+
+  // Testimonials carousel data
+  const testimonials = [
+    {
+      quote: "I took the Python course as a complete beginner and now I am leading AI initiatives at my company. The mentor support was exceptional!",
+      name: "Anita Patel",
+      role: "Product Manager at Flipkart",
+    },
+    {
+      quote: "The 3 day training gave our team a practical foundation for ML projects. Great balance of theory and hands on.",
+      name: "Rohit Sharma",
+      role: "Data Lead at Swasth Health",
+    },
+    {
+      quote: "Amazing value for money. Clear instruction, real projects, and a friendly community.",
+      name: "Neha Verma",
+      role: "CS Undergraduate",
+    },
+  ];
+  const [slide, setSlide] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setSlide((s) => (s + 1) % testimonials.length), 5000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <div className="min-h-screen scroll-smooth bg-gradient-to-b from-[#0A0A0B] via-[#0B0C0E] to-[#0E0F12] text-white antialiased">
+      {/* Top gradient aura */}
+      <GradientGlow />
+
+      {/* NAVBAR */}
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
+          <a href="#home" className="flex items-center gap-3">
+            <Logo />
+          </a>
+          <nav className="hidden items-center gap-2 md:flex">
+            <NavLink href="#home">Home</NavLink>
+            <NavLink href="#about">About</NavLink>
+            <NavLink href="#programs">Programs</NavLink>
+            <NavLink href="#professionals">Professionals</NavLink>
+            <NavLink href="#events">Events</NavLink>
+          </nav>
+          <CTAButton href="#contact">Get Started</CTAButton>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <section id="home" className="relative overflow-hidden">
+        <motion.div style={{ y }} className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
+          <div className="h-full w-full bg-[radial-gradient(1200px_600px_at_50%_-200px,rgba(20,184,198,0.2),transparent)]"/>
+        </motion.div>
+        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-8 px-5 py-20 md:grid-cols-2 md:py-28">
+          <div>
+            <motion.h1 initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.6}} className="text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl">
+              Learn <span className="bg-gradient-to-r from-[#0C2D6B] via-[#0E64A0] to-[#14B8C6] bg-clip-text text-transparent">AI, Coding</span> & Future Skills
+              <span className="block text-white/80">Affordable for Everyone</span>
+            </motion.h1>
+            <p className="mt-6 max-w-xl text-lg text-white/70">
+              Empowering students and professionals with live training and real world projects. Join thousands building their future with cutting edge skills.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <CTAButton href="#contact">Join 1 Day AI Masterclass - ₹49</CTAButton>
+              <CTAButton href="#contact">Register for 3 Day Training - ₹249</CTAButton>
+              <CTAButton href="#contact">Enroll in Python + Vibe Coding - ₹2,499</CTAButton>
+            </div>
+          </div>
+          <motion.div initial={{opacity:0,scale:0.97}} whileInView={{opacity:1,scale:1}} viewport={{once:true}} transition={{duration:0.6}} className="relative">
+            <div className="relative rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
+              <div className="grid grid-cols-2 gap-4">
+                <Stat icon={GraduationCap} value="10,000+" label="Students Trained"/>
+                <Stat icon={Users} value="500+" label="Companies Hiring"/>
+                <Stat icon={Cpu} value="95%" label="Success Rate"/>
+                <Stat icon={Sparkles} value="24/7" label="Support"/>
+              </div>
+              <div className="pointer-events-none absolute inset-0 rounded-3xl" style={{background:"radial-gradient(600px_150px_at_50%_-20%,rgba(20,184,198,0.15),transparent)"}}/>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* ABOUT */}
+      <section id="about" className="relative mx-auto max-w-7xl px-5 py-10">
+        <GradientGlow className="opacity-40" />
+        <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
+          <motion.div initial={{opacity:0,y:20}} whileInView={{opacity:1,y:0}} viewport={{once:true}} transition={{duration:0.6}}>
+            <h2 className="text-3xl font-bold md:text-4xl">About <span className="bg-gradient-to-r from-[#0C2D6B] via-[#0E64A0] to-[#14B8C6] bg-clip-text text-transparent">Nexgen Focus</span></h2>
+            <p className="mt-4 text-white/75">
+              We are pioneering the future of education by making cutting edge AI and coding skills accessible to everyone. Our mission is to bridge the gap between traditional education and industry demands through practical, affordable, and engaging learning experiences.
+            </p>
+            <div className="mt-6 grid grid-cols-2 gap-4">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl">
+                <div className="text-lg font-semibold text-white/90">Our Mission</div>
+                <p className="mt-2 text-sm text-white/70">Democratizing access to future ready skills through innovative teaching and real world project experience.</p>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur-xl">
+                <div className="text-lg font-semibold text-white/90">Our Approach</div>
+                <p className="mt-2 text-sm text-white/70">Live interactive sessions, hands on projects, and industry mentorship to ensure practical skill development and career readiness.</p>
+              </div>
+            </div>
+          </motion.div>
+          <motion.div initial={{opacity:0,scale:0.98}} whileInView={{opacity:1,scale:1}} viewport={{once:true}} transition={{duration:0.6}} className="relative">
+            <div className="aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-[#0C2D6B]/20 via-[#0E64A0]/20 to-[#14B8C6]/20 p-1">
+              <div className="h-full w-full rounded-[22px] bg-[url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1400&auto=format&fit=crop')] bg-cover bg-center opacity-90"/>
+            </div>
+            <div className="pointer-events-none absolute inset-0 rounded-3xl" style={{background:"radial-gradient(500px_150px_at_80%_10%,rgba(20,184,198,0.18),transparent)"}}/>
+          </motion.div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* PROGRAMS */}
+      <section id="programs" className="mx-auto max-w-7xl px-5 py-10">
+        <h2 className="text-center text-3xl font-bold md:text-4xl">Programs & Courses</h2>
+        <p className="mx-auto mt-3 max-w-2xl text-center text-white/70">Choose the format that fits your schedule. Each includes live instruction, practical projects, and certification.</p>
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <CourseCard
+            icon={Sparkles}
+            title="1 Day AI Masterclass"
+            price="49"
+            bullets={["AI basics and applications","Hands on tool demos","Live Q and A","Certificate of completion"]}
+            cta="Join Now"
+          />
+          <CourseCard
+            icon={Cpu}
+            title="3 Day Training Program"
+            price="249"
+            bullets={["In depth AI and ML concepts","3 hands on projects","Industry mentor support","Portfolio development"]}
+            cta="Register"
+          />
+          <CourseCard
+            icon={GraduationCap}
+            title="Python + Vibe Coding Course"
+            price="2,499"
+            bullets={["Python to Advanced","Web frameworks and APIs","Real world projects","Career and certification support"]}
+            cta="Enroll"
+          />
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* PROFESSIONALS */}
+      <section id="professionals" className="relative mx-auto max-w-7xl overflow-hidden px-5 py-10">
+        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-black/30 via-[#0C2D6B]/10 to-[#14B8C6]/10 p-8 backdrop-blur-2xl">
+          <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2">
+            <div>
+              <h2 className="text-3xl font-bold md:text-4xl">Nexgen <span className="bg-gradient-to-r from-[#0C2D6B] via-[#0E64A0] to-[#14B8C6] bg-clip-text text-transparent">Professionals</span></h2>
+              <p className="mt-4 text-white/75">Specialized AI training for working professionals and organizations looking to stay ahead in the digital transformation era.</p>
+              <ul className="mt-6 grid grid-cols-1 gap-3 text-white/80 md:grid-cols-2">
+                <li className="rounded-xl border border-white/10 bg-white/5 p-3">Corporate Training</li>
+                <li className="rounded-xl border border-white/10 bg-white/5 p-3">Executive Programs</li>
+                <li className="rounded-xl border border-white/10 bg-white/5 p-3">Team Upskilling</li>
+                <li className="rounded-xl border border-white/10 bg-white/5 p-3">On site and Remote</li>
+              </ul>
+              <div className="mt-6"><CTAButton href="#contact">Contact Us</CTAButton></div>
+            </div>
+            <div className="relative">
+              <div className="aspect-[4/3] w-full overflow-hidden rounded-3xl border border-white/10 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1400&auto=format&fit=crop')] bg-cover bg-center"/>
+              <div className="pointer-events-none absolute inset-0 rounded-3xl" style={{background:"radial-gradient(600px_160px_at_20%_0%,rgba(12,45,107,0.25),transparent)"}}/>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* TESTIMONIALS */}
+      <section id="testimonials" className="mx-auto max-w-7xl px-5 py-10">
+        <h2 className="text-center text-3xl font-bold md:text-4xl">What Our <span className="bg-gradient-to-r from-[#0C2D6B] via-[#0E64A0] to-[#14B8C6] bg-clip-text text-transparent">Students Say</span></h2>
+        <div className="relative mt-10 overflow-hidden">
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
+            <TestimonialSlide {...testimonials[slide]} />
+          </div>
+          <div className="mt-4 flex justify-center gap-2">
+            {testimonials.map((_, i) => (
+              <button key={i} onClick={() => setSlide(i)} className={`h-2 w-6 rounded-full transition ${i===slide?"bg-teal-400":"bg-white/20 hover:bg-white/40"}`} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* EVENTS */}
+      <section id="events" className="mx-auto max-w-7xl px-5 py-10">
+        <h2 className="text-center text-3xl font-bold md:text-4xl">Upcoming Events</h2>
+        <p className="mx-auto mt-3 max-w-2xl text-center text-white/70">Join our webinars, workshops, and showcases across India and online.</p>
+        <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <EventCard title="AI in Healthcare - Opportunities" date="Thu, Feb 15, 2024" time="7:00 PM - 9:00 PM IST" location="Online Webinar" type="Webinar"/>
+          <EventCard title="Python for Beginners Bootcamp" date="Sun, Feb 18, 2024" time="10:00 AM - 6:00 PM IST" location="Bangalore" type="Workshop"/>
+          <EventCard title="AI Tools for Business Leaders" date="Thu, Feb 22, 2024" time="2:00 PM - 4:00 PM IST" location="Online" type="Webinar"/>
+          <EventCard title="Machine Learning Project Showcase" date="Sun, Feb 25, 2024" time="6:00 PM - 8:00 PM IST" location="Mumbai" type="Featured Event"/>
+        </div>
+      </section>
+
+      <SectionDivider />
+
+      {/* CONTACT + FOOTER */}
+      <footer id="contact" className="relative border-t border-white/10 bg-black/40">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-5 py-14 md:grid-cols-4">
+          <div>
+            <Logo />
+            <p className="mt-4 max-w-xs text-white/70">Empowering the next generation with AI, coding, and future ready skills. Making cutting edge education accessible and affordable for everyone.</p>
+            <div className="mt-6 flex gap-3">
+              <Social icon={<Facebook className="size-4"/>} />
+              <Social icon={<Twitter className="size-4"/>} />
+              <Social icon={<Instagram className="size-4"/>} />
+              <Social icon={<Linkedin className="size-4"/>} />
+              <Social icon={<Youtube className="size-4"/>} />
+            </div>
+          </div>
+
+          <div>
+            <FooterHeading>Quick Links</FooterHeading>
+            <FooterLink href="#home">Home</FooterLink>
+            <FooterLink href="#about">About Us</FooterLink>
+            <FooterLink href="#programs">Programs</FooterLink>
+            <FooterLink href="#professionals">Professionals</FooterLink>
+            <FooterLink href="#events">Events</FooterLink>
+          </div>
+
+          <div>
+            <FooterHeading>Courses</FooterHeading>
+            <FooterLink href="#programs">AI Masterclass</FooterLink>
+            <FooterLink href="#programs">3 Day Training</FooterLink>
+            <FooterLink href="#programs">Python Course</FooterLink>
+            <FooterLink href="#professionals">Corporate Training</FooterLink>
+            <FooterLink href="#professionals">Executive Programs</FooterLink>
+          </div>
+
+          <div>
+            <FooterHeading>Contact Us</FooterHeading>
+            <FooterItem icon={<Mail className="size-4"/>}>info@nexgenfocus.com<br/>support@nexgenfocus.com</FooterItem>
+            <FooterItem icon={<Phone className="size-4"/>}>+91 98765 43210<br/>+91 87654 32109</FooterItem>
+            <FooterItem icon={<MapPin className="size-4"/>}>Nexgen Focus HQ<br/>Tech Park, Bangalore<br/>Karnataka, India 560001</FooterItem>
+          </div>
+        </div>
+        <div className="border-t border-white/10 py-6 text-center text-sm text-white/60">© {new Date().getFullYear()} Nexgen Focus. All rights reserved. · Privacy Policy · Terms of Service · Refund Policy</div>
+      </footer>
+    </div>
+  );
+}
