@@ -170,13 +170,13 @@ const FeatureCard = ({ icon: Icon, title, description }: {
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.2 }}
     transition={{ duration: 0.5 }}
-    className="rounded-3xl border border-white/10 bg-white/5 p-8 text-center backdrop-blur-xl"
+    className="rounded-3xl border border-white/10 bg-white/5 p-4 text-center backdrop-blur-xl break-words sm:p-8"
   >
     <div className="mx-auto mb-4 w-fit rounded-2xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3">
       <Icon className="size-8 text-white" />
     </div>
-    <h3 className="text-xl font-semibold text-white">{title}</h3>
-    <p className="mt-3 text-white/70">{description}</p>
+    <h3 className="text-lg font-semibold text-white break-words sm:text-xl">{title}</h3>
+    <p className="mt-3 text-sm text-white/70 break-words leading-relaxed sm:text-base">{description}</p>
   </motion.div>
 );
 
@@ -229,9 +229,9 @@ const CourseCard = ({
       <div className="rounded-2xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal p-3 text-white">
         <Icon className="size-6" />
       </div>
-      <h3 className="text-xl font-semibold tracking-tight text-white">{title}</h3>
+      <h3 className="text-lg font-semibold tracking-tight text-white break-words sm:text-xl">{title}</h3>
     </div>
-    <div className="mb-4 text-3xl font-bold text-white">₹{price}</div>
+    <div className="mb-4 text-2xl font-bold text-white break-words sm:text-3xl">₹{price}</div>
     <ul className="mb-6 space-y-3 text-sm text-white/75">
       {bullets.map((bullet, i) => (
         <li key={i} className="flex items-start gap-2">
@@ -466,21 +466,21 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ duration: 0.6 }} 
-              className="text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl md:text-6xl"
+              className="text-3xl font-extrabold leading-[1.1] tracking-tight text-white break-words sm:text-4xl md:text-5xl lg:text-6xl"
             >
               {/* MAIN HEADLINE - Change this to update your main message */}
               Learn <span className="bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal bg-clip-text text-transparent">AI, Coding</span> & Future Skills
               <span className="block text-white/80">Affordable for Everyone</span>
             </motion.h1>
             {/* HERO DESCRIPTION - Update this to change your main value proposition */}
-            <p className="mt-6 max-w-xl text-lg text-white/70">
+            <p className="mt-6 max-w-full text-base leading-relaxed text-white/70 break-words sm:max-w-xl sm:text-lg">
               Empowering students and professionals with live training and real world projects. Join thousands building their future with cutting edge skills.
             </p>
             {/* HERO BUTTONS - Update prices and program names here */}
-            <div className="mt-8 flex flex-wrap gap-3">
-              <CTAButton href="#contact">Join 1 Day AI Masterclass - ₹49</CTAButton>
-              <CTAButton href="#contact">Register for 3 Day Training - ₹249</CTAButton>
-              <CTAButton href="#contact">Enroll in Python + Vibe Coding - ₹2,499</CTAButton>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <CTAButton href="#contact" className="text-sm sm:text-base">Join 1 Day AI Masterclass - ₹49</CTAButton>
+              <CTAButton href="#contact" className="text-sm sm:text-base">Register for 3 Day Training - ₹249</CTAButton>
+              <CTAButton href="#contact" className="text-sm sm:text-base">Enroll in Python + Vibe Coding - ₹2,499</CTAButton>
             </div>
           </div>
           <motion.div 
@@ -515,19 +515,19 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }} 
               transition={{ duration: 0.6 }}
-              className="text-3xl font-bold tracking-tight text-white sm:text-4xl"
+              className="text-2xl font-bold tracking-tight text-white break-words sm:text-3xl md:text-4xl"
             >
               {/* SECTION TITLE - Change "Nexgen Focus" to your company name */}
               About <span className="bg-gradient-to-r from-brand-dark via-brand-medium to-brand-teal bg-clip-text text-transparent">Nexgen Focus</span>
             </motion.h2>
             {/* ABOUT DESCRIPTION - Update this to describe your company */}
-            <p className="mx-auto mt-6 max-w-3xl text-lg text-white/70">
+            <p className="mx-auto mt-6 max-w-full px-4 text-base leading-relaxed text-white/70 break-words sm:max-w-3xl sm:px-0 sm:text-lg">
               We are bridging the skills gap in technology by providing practical, industry-relevant training programs. Our mission is to make quality tech education accessible and affordable for everyone, from students to working professionals.
             </p>
           </div>
           
           {/* FEATURE CARDS - Add or remove features by copying this pattern */}
-          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 gap-8 px-4 sm:px-0 md:grid-cols-3">
             <FeatureCard 
               icon={Target} 
               title="Practical Learning" 
