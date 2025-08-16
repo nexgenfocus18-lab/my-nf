@@ -492,7 +492,7 @@ const WhatsAppButton = ({
 }) => {
   const handleWhatsAppChat = () => {
     // Replace with your actual WhatsApp business number (include country code without +)
-    const phoneNumber = "919876543210"; // Replace with your number
+    const phoneNumber = "919405998860"; // Replace with your number
     const defaultMessage =
       "Hi Nexgen Focus! I'm interested in your AI and coding courses. Can you please provide more information?";
     const whatsappMessage = encodeURIComponent(message || defaultMessage);
@@ -524,7 +524,7 @@ const CorporateWhatsAppButton = ({
   className?: string;
 }) => {
   const handleCorporateWhatsApp = () => {
-    const phoneNumber = "919876543210"; // Replace with your number
+    const phoneNumber = "919405998860"; // Replace with your number
     const message = encodeURIComponent(
       "Hi Nexgen Focus! I'm interested in corporate training programs for my organization. Can you please provide bulk pricing and customization options?",
     );
