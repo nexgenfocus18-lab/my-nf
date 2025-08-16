@@ -120,6 +120,34 @@ const DownloadButton = ({ className = "" }: { className?: string }) => {
   );
 };
 
+// ========================================
+// BUY NOW BUTTON
+// ========================================
+// This button will be used for payment integration (Razorpay, etc.)
+// TO INTEGRATE PAYMENT: Replace onClick handler with payment gateway
+const BuyNowButton = ({ price, title, className = "" }: { 
+  price: string; 
+  title: string; 
+  className?: string; 
+}) => {
+  const handleBuyNow = () => {
+    // TODO: Integrate with Razorpay or other payment gateway
+    console.log(`Initiating purchase for ${title} - ₹${price}`);
+    alert(`Payment integration coming soon for ${title}!\nPrice: ₹${price}`);
+  };
+
+  return (
+    <button 
+      onClick={handleBuyNow}
+      className={`group inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-green-600 via-green-500 to-green-400 px-6 py-3 font-semibold text-white shadow-[0_10px_30px_-10px_rgba(34,197,94,0.55)] transition-all duration-200 hover:scale-[1.02] hover:shadow-[0_18px_40px_-12px_rgba(34,197,94,0.65)] ${className}`}
+    >
+      <span>₹{price}</span>
+      <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+      Buy Now
+    </button>
+  );
+};
+
 // Top gradient aura
 const GradientGlow = ({ className = "" }: { className?: string }) => (
   <div className={`pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(70%_60%_at_50%_0%,black,transparent)] ${className}`}>
@@ -245,6 +273,7 @@ const CourseCard = ({
         {cta}
       </CTAButton>
       <DownloadButton className="w-full" />
+      <BuyNowButton price={price} title={title} className="w-full" />
     </div>
     <div
       className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
