@@ -707,10 +707,10 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-4">
                 <Stat
                   icon={GraduationCap}
-                  value="10,000+"
+                  value="300+"
                   label="Students Trained"
                 />
-                <Stat icon={Users} value="500+" label="Companies Hiring" />
+                <Stat icon={Users} value="100+" label="A.I Tools" />
                 <Stat icon={Cpu} value="95%" label="Success Rate" />
                 <Stat icon={Sparkles} value="24/7" label="Support" />
               </div>
@@ -842,7 +842,7 @@ export default function Home() {
                       <div className="mx-auto mb-4 w-24 h-24 rounded-2xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal flex items-center justify-center">
                         <Users className="size-12 text-white" />
                       </div>
-                      <p className="text-white/50 text-sm">Your Photo Here</p>
+                      <p className="text-white/50 text-sm">Photo</p>
                     </div>
                   </div>
                 </div>
@@ -852,7 +852,7 @@ export default function Home() {
                   {/* INSTRUCTOR INFO - Update with your actual name and title */}
                   <div className="mb-6">
                     <h3 className="text-2xl font-bold text-white mb-2">
-                      Your Name
+                      Anas Ahmad Khan
                     </h3>
                     <p className="text-brand-teal font-medium">
                       AI & Technology Expert
@@ -870,7 +870,7 @@ export default function Home() {
                             "Exceptional technical depth and teaching ability"
                           </p>
                           <p className="text-white/60 text-xs mt-1">
-                            - Senior Tech Lead
+                            - Industry Expert
                           </p>
                         </div>
                         <div className="rounded-lg bg-white/5 p-4 border-l-4 border-brand-teal">
