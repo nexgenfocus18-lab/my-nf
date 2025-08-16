@@ -365,7 +365,7 @@ const Social = ({ icon: Icon }: { icon: React.ComponentType<{ className?: string
 
 export default function Home() {
   const { scrollY } = useScroll();
-  const y = useTransform(scrollY, [0, 600], [0, 140]);
+  const y = useTransform(scrollY, [0, 300], [0, 100]);
 
   // Testimonials data and carousel state
   const testimonials = [
@@ -429,13 +429,13 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen scroll-smooth bg-gradient-to-b from-[#0A0A0B] via-[#0B0C0E] to-[#0E0F12] text-white antialiased">
+    <div className="min-h-screen w-full overflow-x-hidden scroll-smooth bg-gradient-to-b from-[#0A0A0B] via-[#0B0C0E] to-[#0E0F12] text-white antialiased">
       {/* Top gradient aura */}
       <GradientGlow />
 
       {/* Navigation Header */}
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-black/30 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3">
+      <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/30 backdrop-blur-xl">
+        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-5">
           <a href="#home" className="flex items-center gap-3">
             <Logo />
           </a>
