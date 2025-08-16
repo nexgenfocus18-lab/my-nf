@@ -1650,7 +1650,7 @@ export default function Home() {
                     <Phone className="size-5 mt-0.5 text-brand-teal" />
                     <div>
                       <div className="font-medium text-white/90">Phone</div>
-                      <div>+91 9876543210</div>
+                      <div>+91 9405998860</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 text-white/70">
