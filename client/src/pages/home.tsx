@@ -710,7 +710,7 @@ export default function Home() {
                   value="300+"
                   label="Students Trained"
                 />
-                <Stat icon={Users} value="100+" label="A.I Tools" />
+                <Stat icon={Users} value="50+" label="AI Projects" />
                 <Stat icon={Cpu} value="95%" label="Success Rate" />
                 <Stat icon={Sparkles} value="24/7" label="Support" />
               </div>
