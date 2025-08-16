@@ -1596,7 +1596,7 @@ export default function Home() {
                    TO UPDATE: Replace the URL with your actual Google Form link */}
               <div className="mt-4">
                 <a
-                  href="https://forms.google.com/your-google-form-link"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdug5w-DcP0O5qJX3acIMqEAF0xKAg38FT-eAcjM97Qem75oA/viewform?usp=dialog"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group w-full inline-flex items-center justify-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-6 py-3 font-medium text-white backdrop-blur-xl transition-all duration-200 hover:bg-white/20 hover:border-brand-teal/60 hover:scale-[1.02]"
