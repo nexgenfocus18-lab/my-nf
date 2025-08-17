@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 100%);
+  --background: hsl(240, 5, 4, 100%);
   --foreground: hsl(210, 25%, 7.8431%);
   --card: hsl(180, 6.6667%, 97.0588%);
   --card-foreground: hsl(210, 25%, 7.8431%);
@@ -50,7 +50,7 @@
   --shadow-2xl: 0px 2px 0px 0px hsl(202.8169, 89.1213%, 53.1373%, 0.00);
   --tracking-normal: 0em;
   --spacing: 0.25rem;
-  
+
   /* Brand colors from design */
   --brand-dark: hsl(220, 86%, 24%);
   --brand-medium: hsl(203, 86%, 34%);
@@ -116,7 +116,7 @@
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
-  
+
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -125,11 +125,12 @@
 }
 
 @keyframes glow-pulse {
-  0% { 
-    box-shadow: 0 0 20px rgba(20, 184, 198, 0.4), 0 0 40px rgba(20, 184, 198, 0.2), 0 0 60px rgba(20, 184, 198, 0.1); 
+  0% {
+    box-shadow: 0 0 20px rgba(20, 184, 198, 0.4), 0 0 40px rgba(20, 184, 198, 0.2), 0 0 60px rgba(20, 184, 198, 0.1);
   }
-  100% { 
-    box-shadow: 0 0 30px rgba(20, 184, 198, 0.6), 0 0 60px rgba(20, 184, 198, 0.3), 0 0 90px rgba(20, 184, 198, 0.15); 
+
+  100% {
+    box-shadow: 0 0 30px rgba(20, 184, 198, 0.6), 0 0 60px rgba(20, 184, 198, 0.3), 0 0 90px rgba(20, 184, 198, 0.15);
   }
 }
 
@@ -137,11 +138,12 @@
   .animate-glow-pulse {
     animation: glow-pulse 2s ease-in-out infinite alternate;
   }
-  
+
   @keyframes slide {
     0% {
       transform: translateX(0);
     }
+
     100% {
       transform: translateX(-50%);
     }
