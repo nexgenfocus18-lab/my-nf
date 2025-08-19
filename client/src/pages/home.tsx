@@ -492,7 +492,7 @@ const WhatsAppButton = ({
 }) => {
   const handleWhatsAppChat = () => {
     // Replace with your actual WhatsApp business number (include country code without +)
-    const phoneNumber = "919405998860"; // Replace with your number
+    const phoneNumber = "919876543210"; // Replace with your number
     const defaultMessage =
       "Hi Nexgen Focus! I'm interested in your AI and coding courses. Can you please provide more information?";
     const whatsappMessage = encodeURIComponent(message || defaultMessage);
@@ -524,7 +524,7 @@ const CorporateWhatsAppButton = ({
   className?: string;
 }) => {
   const handleCorporateWhatsApp = () => {
-    const phoneNumber = "919405998860"; // Replace with your number
+    const phoneNumber = "919876543210"; // Replace with your number
     const message = encodeURIComponent(
       "Hi Nexgen Focus! I'm interested in corporate training programs for my organization. Can you please provide bulk pricing and customization options?",
     );
@@ -707,10 +707,10 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-4">
                 <Stat
                   icon={GraduationCap}
-                  value="300+"
+                  value="10,000+"
                   label="Students Trained"
                 />
-                <Stat icon={Users} value="50+" label="AI Projects" />
+                <Stat icon={Users} value="500+" label="Companies Hiring" />
                 <Stat icon={Cpu} value="95%" label="Success Rate" />
                 <Stat icon={Sparkles} value="24/7" label="Support" />
               </div>
@@ -842,7 +842,7 @@ export default function Home() {
                       <div className="mx-auto mb-4 w-24 h-24 rounded-2xl bg-gradient-to-tr from-brand-dark via-brand-medium to-brand-teal flex items-center justify-center">
                         <Users className="size-12 text-white" />
                       </div>
-                      <p className="text-white/50 text-sm">Photo</p>
+                      <p className="text-white/50 text-sm">Your Photo Here</p>
                     </div>
                   </div>
                 </div>
@@ -852,7 +852,7 @@ export default function Home() {
                   {/* INSTRUCTOR INFO - Update with your actual name and title */}
                   <div className="mb-6">
                     <h3 className="text-2xl font-bold text-white mb-2">
-                      Anas Ahmad Khan
+                      Your Name
                     </h3>
                     <p className="text-brand-teal font-medium">
                       AI & Technology Expert
@@ -870,7 +870,7 @@ export default function Home() {
                             "Exceptional technical depth and teaching ability"
                           </p>
                           <p className="text-white/60 text-xs mt-1">
-                            - Industry Expert
+                            - Senior Tech Lead
                           </p>
                         </div>
                         <div className="rounded-lg bg-white/5 p-4 border-l-4 border-brand-teal">
@@ -1546,19 +1546,19 @@ export default function Home() {
                         value="1-day-ai"
                         className="text-white bg-slate-800 font-medium"
                       >
-                        🚀 1 Day AI Masterclass - ₹49
+                        🚀 1 Day AI Masterclass - ₹400/₹49
                       </option>
                       <option
                         value="3-day-training"
                         className="text-white bg-slate-800 font-medium"
                       >
-                        ⭐ 3 Day Training - ₹249
+                        ⭐ 3 Day Training - ₹1,499/₹249
                       </option>
                       <option
                         value="python-coding"
                         className="text-white bg-slate-800 font-medium"
                       >
-                        💻 Python + Vibe Coding - ₹2,499
+                        💻 Python + Vibe Coding - ₹7,999/₹2,499
                       </option>
                     </select>
                   </div>
@@ -1596,7 +1596,7 @@ export default function Home() {
                    TO UPDATE: Replace the URL with your actual Google Form link */}
               <div className="mt-4">
                 <a
-                  href="https://docs.google.com/forms/d/e/1FAIpQLSdug5w-DcP0O5qJX3acIMqEAF0xKAg38FT-eAcjM97Qem75oA/viewform?usp=dialog"
+                  href="https://forms.google.com/your-google-form-link"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group w-full inline-flex items-center justify-center gap-2 rounded-2xl border border-white/30 bg-white/10 px-6 py-3 font-medium text-white backdrop-blur-xl transition-all duration-200 hover:bg-white/20 hover:border-brand-teal/60 hover:scale-[1.02]"
@@ -1650,7 +1650,7 @@ export default function Home() {
                     <Phone className="size-5 mt-0.5 text-brand-teal" />
                     <div>
                       <div className="font-medium text-white/90">Phone</div>
-                      <div>+91 9405998860</div>
+                      <div>+91 9876543210</div>
                     </div>
                   </div>
                   <div className="flex items-start gap-3 text-white/70">
