@@ -15,6 +15,10 @@
       "dest": "/assets/$1"
     },
     {
+      "src": "/nexgen-brochure.pdf",
+      "dest": "/nexgen-brochure.pdf"
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
