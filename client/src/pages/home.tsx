@@ -1767,32 +1767,36 @@ export default function Home() {
 
             <div>
               <div className="mb-3 text-base font-semibold text-white/90">
-                Support
+                Policies
               </div>
               <div className="space-y-2">
                 <a
-                  href="#"
+                  href="/shipping-policy"
                   className="block py-1 text-sm text-white/70 transition hover:text-white"
+                  data-testid="link-shipping-policy"
                 >
-                  Help Center
+                  Shipping Policy
                 </a>
                 <a
-                  href="#"
+                  href="/terms-and-conditions"
                   className="block py-1 text-sm text-white/70 transition hover:text-white"
+                  data-testid="link-terms-conditions"
+                >
+                  Terms and Conditions
+                </a>
+                <a
+                  href="/cancellation-refund-policy"
+                  className="block py-1 text-sm text-white/70 transition hover:text-white"
+                  data-testid="link-refund-policy"
+                >
+                  Cancellations and Refunds
+                </a>
+                <a
+                  href="/privacy-policy"
+                  className="block py-1 text-sm text-white/70 transition hover:text-white"
+                  data-testid="link-privacy-policy"
                 >
                   Privacy Policy
-                </a>
-                <a
-                  href="#"
-                  className="block py-1 text-sm text-white/70 transition hover:text-white"
-                >
-                  Terms of Service
-                </a>
-                <a
-                  href="#"
-                  className="block py-1 text-sm text-white/70 transition hover:text-white"
-                >
-                  Refund Policy
                 </a>
               </div>
             </div>
